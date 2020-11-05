@@ -16,7 +16,15 @@ This is the client that utilizes the Hyrulian Times API.
 
 ### User Stories
 
-
+- As a user, I can create a new account
+- As a user, I can login into my account
+- As a signed in user, I can change my password
+- As a signed in user, I can logout
+- As a signed in user, I can create a post
+- As a signed in user, I can look at everyone’s posts
+- As a signed in user, I can comment on a post
+- As a signed in user, I can edit my posts
+- As a signed in user, I can delete my posts
 
 ### Technologies Used
 

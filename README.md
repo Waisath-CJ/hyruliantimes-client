@@ -4,9 +4,7 @@ This is the client that utilizes the Hyrulian Times API.
 
 ## Important Links
 
-```md
-<!-- Links go here -->
-```
+[Deployed Client](https://waisath-cj.github.io/hyruliantimes-client)
 
 ## Planning Story
 

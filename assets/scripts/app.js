@@ -1,6 +1,7 @@
 'use strict'
 
 const authEvents = require('./auth/events')
+const postEvents = require('./posts/events')
 
 $(() => {
   // AUTH Event Listeners
@@ -15,6 +16,16 @@ $(() => {
 
   // DELETE sign-out
   $('#sign-out').on('click', authEvents.onSignOut)
+
+  // POST Event Listeners
+  // POST create post
+  $('#create-post-form').on('submit', postEvents.createPost)
+
+  // GET posts
+  $('#get-posts').on('click', postEvents.getPosts)
+  // PATCH post
+
+  // DELETE post
 
   // MISC Event Listeners
   // Switch from sign in to sign up

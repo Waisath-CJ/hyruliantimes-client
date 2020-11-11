@@ -91,6 +91,22 @@
         </form>
         <br>
         <p>Don't have an account? <a href="#" id="sign-up-switch">Create an Account</a></p>
-      </section>      
+      </section>
+      
+      <section id="create-post-section">
+        <form id="create-post-form">
+          <fieldset>
+            <legend>Create Post</legend>
+            <div class="form-group">
+              <label for="create-post">Create Post</label>
+              <textarea id="create-post" class="form-control" name="post[content]" placeholder="Write your thoughts..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-secondary">Create Post</button>
+          </fieldset>
+        </form>
+      </section>
+      <button class="btn btn-secondary" id="get-posts">Get Posts</button>
+
+      <p id="response-area"></p>
     </body>
 </html>

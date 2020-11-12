@@ -24,20 +24,24 @@ const getPosts = () => {
   })
 }
 
-const editPost = (postData, id) => {
+const editPost = postData => {
   return $.ajax({
-    url: config.apiUrl + `/posts/${id}`,
+    url: config.apiUrl + `/posts/${postData.post.id}`,
     method: 'PATCH',
     headers: {
       Authorization: `Bearer ${store.user.token}`
     },
-    data: postData
+    data: {
+      post: {
+        content: postData.post.content
+      }
+    }
   })
 }
 
-const deletePost = id => {
+const deletePost = postData => {
   return $.ajax({
-    url: config.apiUrl + `/posts/${id}`,
+    url: config.apiUrl + `/posts/${postData.post.id}`,
     method: 'DELETE',
     headers: {
       Authorization: `Bearer ${store.user.token}`

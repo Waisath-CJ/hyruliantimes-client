@@ -12,6 +12,8 @@ const createPost = e => {
 
   api.createPost(postData)
     .then(ui.createPostSuccess)
+    .then(api.getPosts)
+    .then(ui.getPostsSuccess)
     .catch(ui.createPostFailure)
 }
 
@@ -23,17 +25,7 @@ const getPosts = e => {
     .catch(ui.getPostsFailure)
 }
 
-const editPost = e => {
-
-}
-
-const deletePost = e => {
-
-}
-
 module.exports = {
   createPost,
-  getPosts,
-  editPost,
-  deletePost
+  getPosts
 }

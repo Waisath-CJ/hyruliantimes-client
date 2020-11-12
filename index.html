@@ -1,112 +1,119 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Hyrulian Times</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <title>Hyrulian Times</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h4 id="message"></h4>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
-      <div class="dropdown hiddenFromStart" role="group" id="change-password-dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Change Password
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="menu-options">
-          <form id="change-password-form" class="px-4 py-3">
-            <fieldset>
-              <legend>Change Password</legend>
-              <div class="form-group">
-                <label for="change-password-old">Old Password</label>
-                <input id="change-password-old" class="form-control" type="password" name="passwords[old]"
-                  placeholder="Old password" required>
-              </div>
-              <div class="form-group">
-                <label for="change-password-new">New Password</label>
-                <input id="change-password-new" class="form-control" type="password" name="passwords[new]"
-                  placeholder="New password" required>
-              </div>
-              <button type="submit" class="btn btn-primary">Change Password</button>
-            </fieldset>
-          </form>
-        </div>
+<body>
+  <div class="container">
+    <h4 id="message"></h4>
+
+    <div class="dropdown hiddenFromStart" role="group" id="change-password-dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Change Password
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="menu-options">
+        <form id="change-password-form" class="px-4 py-3">
+          <fieldset>
+            <legend>Change Password</legend>
+            <div class="form-group">
+              <label for="change-password-old">Old Password</label>
+              <input id="change-password-old" class="form-control" type="password" name="passwords[old]"
+                placeholder="Old password" required>
+            </div>
+            <div class="form-group">
+              <label for="change-password-new">New Password</label>
+              <input id="change-password-new" class="form-control" type="password" name="passwords[new]"
+                placeholder="New password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Change Password</button>
+          </fieldset>
+        </form>
       </div>
-      <button class="btn btn-secondary hiddenFromStart" id="sign-out">Logout</button>
+    </div>
+    <button class="btn btn-secondary hiddenFromStart" id="sign-out">Logout</button>
 
-      <section id="sign-up-section" class="hiddenFromStart">
-        <form id="sign-up-form">
-          <fieldset>
-            <legend>Create an Account</legend>
-            <div class="form-group">
-              <label for="sign-up-email">Email</label>
-              <input id="sign-up-email" class="form-control" type="email" name="credentials[email]" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-              <label for="sign-up-firstName">First Name</label>
-              <input id="sign-up-firstName" class="form-control" type="text" name="credentials[firstName]" placeholder="First Name" required>
-            </div>
-            <div class="form-group">
-              <label for="sign-up-lastName">Last Name</label>
-              <input id="sign-up-lastName" class="form-control" type="text" name="credentials[lastName]" placeholder="Last Name" required>
-            </div>
-            <div class="form-group">
-              <label for="sign-up-password">Password</label>
-              <input id="sign-up-password" class="form-control" type="password" name="credentials[password]"
-                placeholder="Password" required>
-            </div>
-            <div class="form-group">
-              <label for="sign-up-password_confirmation">Password Confirmation</label>
-              <input id="sign-up-password_confirmmation" class="form-control" type="password"
-                name="credentials[password_confirmation]" placeholder="Confirm Password" required>
-            </div>
-            <button type="submit" class="btn btn-secondary">Create Account</button>
-          </fieldset>
-        </form>
-        <br>
-        <p>Already have an account? <a href="#" id="sign-in-switch">Login</a></p>
-      </section>
+    <section id="sign-up-section" class="hiddenFromStart">
+      <form id="sign-up-form">
+        <fieldset>
+          <legend>Create an Account</legend>
+          <div class="form-group">
+            <label for="sign-up-email">Email</label>
+            <input id="sign-up-email" class="form-control" type="email" name="credentials[email]" placeholder="Email"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="sign-up-firstName">First Name</label>
+            <input id="sign-up-firstName" class="form-control" type="text" name="credentials[firstName]"
+              placeholder="First Name" required>
+          </div>
+          <div class="form-group">
+            <label for="sign-up-lastName">Last Name</label>
+            <input id="sign-up-lastName" class="form-control" type="text" name="credentials[lastName]"
+              placeholder="Last Name" required>
+          </div>
+          <div class="form-group">
+            <label for="sign-up-password">Password</label>
+            <input id="sign-up-password" class="form-control" type="password" name="credentials[password]"
+              placeholder="Password" required>
+          </div>
+          <div class="form-group">
+            <label for="sign-up-password_confirmation">Password Confirmation</label>
+            <input id="sign-up-password_confirmmation" class="form-control" type="password"
+              name="credentials[password_confirmation]" placeholder="Confirm Password" required>
+          </div>
+          <button type="submit" class="btn btn-secondary">Create Account</button>
+        </fieldset>
+      </form>
+      <br>
+      <p>Already have an account? <a href="#" id="sign-in-switch">Login</a></p>
+    </section>
 
-      <section id="sign-in-section">
-        <form id="sign-in-form">
-          <fieldset>
-            <legend>Login</legend>
-            <div class="form-group">
-              <label for="sign-in-email">Email</label>
-              <input id="sign-in-email" class="form-control" type="email" name="credentials[email]" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-              <label for="sign-in-password">Password</label>
-              <input id="sign-in-password" class="form-control" type="password" name="credentials[password]"
-                placeholder="Password" required>
-            </div>
-            <button type="submit" class="btn btn-secondary">Login</button>
-          </fieldset>
-        </form>
-        <br>
-        <p>Don't have an account? <a href="#" id="sign-up-switch">Create an Account</a></p>
-      </section>
-      
-      <section id="create-post-section">
-        <form id="create-post-form">
-          <fieldset>
-            <legend>Create Post</legend>
-            <div class="form-group">
-              <label for="create-post">Create Post</label>
-              <textarea id="create-post" class="form-control" name="post[content]" placeholder="Write your thoughts..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-secondary">Create Post</button>
-          </fieldset>
-        </form>
-      </section>
-      <button class="btn btn-secondary" id="get-posts">Get Posts</button>
+    <section id="sign-in-section">
+      <form id="sign-in-form">
+        <fieldset>
+          <legend>Login</legend>
+          <div class="form-group">
+            <label for="sign-in-email">Email</label>
+            <input id="sign-in-email" class="form-control" type="email" name="credentials[email]" placeholder="Email"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="sign-in-password">Password</label>
+            <input id="sign-in-password" class="form-control" type="password" name="credentials[password]"
+              placeholder="Password" required>
+          </div>
+          <button type="submit" class="btn btn-secondary">Login</button>
+        </fieldset>
+      </form>
+      <br>
+      <p>Don't have an account? <a href="#" id="sign-up-switch">Create an Account</a></p>
+    </section>
 
-      <p id="response-area"></p>
-    </body>
+    <section id="create-post-section" class="hiddenFromStart">
+      <form id="create-post-form">
+        <fieldset>
+          <legend>Create Post</legend>
+          <div class="form-group">
+            <label for="create-post">Create Post</label>
+            <textarea id="create-post" class="form-control" name="post[content]" placeholder="Write your thoughts..."
+              required></textarea>
+          </div>
+          <button type="submit" class="btn btn-secondary">Create Post</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <section id="posts-section" class="hiddenFromStart"></section>
+  </div>
+</body>
 </html>

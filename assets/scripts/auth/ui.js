@@ -42,6 +42,8 @@ const signOutSuccess = () => {
   $('#change-password-dropdown').hide()
   $('#create-post-section').hide()
   $('#posts-section').hide()
+  $('#change-password-form').trigger('reset')
+  $('#create-post-form').trigger('reset')
 }
 
 const signOutFailure = err => {

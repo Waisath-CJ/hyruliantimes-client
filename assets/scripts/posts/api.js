@@ -39,9 +39,9 @@ const editPost = postData => {
   })
 }
 
-const deletePost = postData => {
+const deletePost = postId => {
   return $.ajax({
-    url: config.apiUrl + `/posts/${postData.post.id}`,
+    url: config.apiUrl + `/posts/${postId}`,
     method: 'DELETE',
     headers: {
       Authorization: `Bearer ${store.user.token}`

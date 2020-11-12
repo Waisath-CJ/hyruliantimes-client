@@ -2,6 +2,8 @@
 
 const api = require('./api')
 const ui = require('./ui')
+const postApi = require('../posts/api')
+const postUi = require('../posts/ui')
 const getFormFields = require('../../../lib/get-form-fields')
 
 const onSignUp = e => {
@@ -21,6 +23,8 @@ const onSignIn = e => {
 
   api.signIn(formData)
     .then(ui.signInSuccess)
+    .then(postApi.getPosts)
+    .then(postUi.getPostsSuccess)
     .catch(ui.signInFailure)
 }
 

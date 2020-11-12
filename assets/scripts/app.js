@@ -23,9 +23,6 @@ $(() => {
 
   // GET posts
   $('#get-posts').on('click', postEvents.getPosts)
-  // PATCH post
-
-  // DELETE post
 
   // MISC Event Listeners
   // Switch from sign in to sign up

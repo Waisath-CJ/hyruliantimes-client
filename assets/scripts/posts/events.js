@@ -25,7 +25,21 @@ const getPosts = e => {
     .catch(ui.getPostsFailure)
 }
 
+const editPost = e => {
+  e.preventDefault()
+
+  const form = e.target
+  const postData = getFormFields(form)
+
+  api.editPost(postData)
+    .then(ui.editPostSuccess)
+    .then(api.getPosts)
+    .then(ui.getPostsSuccess)
+    .catch(ui.editPostFailure)
+}
+
 module.exports = {
   createPost,
-  getPosts
+  getPosts,
+  editPost
 }

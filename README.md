@@ -6,11 +6,13 @@ This is the client that utilizes the Hyrulian Times API.
 
 [Deployed Client](https://waisath-cj.github.io/hyruliantimes-client)
 
+[Deployed API](https://pure-savannah-85782.herokuapp.com)
+
+[Hyrulian Times API Repo](https://github.com/Waisath-CJ/hyruliantimes-api)
+
 ## Planning Story
 
-```md
-<!-- Planning story goes here -->
-```
+In planning for this project, I decided that I would first start by working on the API side of things to make sure that my server was running and that there were no bugs in it before I moved on to the client. Once the API was done, then I began to work on the client and slowly connected each RESTful action up to work with the API until the application was complete. This approach helped to dilute the amount of errors I ran into during development and it was easier to know where the issue was when something stopped working.
 
 ### User Stories
 
@@ -20,7 +22,6 @@ This is the client that utilizes the Hyrulian Times API.
 - As a signed in user, I can logout
 - As a signed in user, I can create a post
 - As a signed in user, I can look at everyone’s posts
-- As a signed in user, I can comment on a post
 - As a signed in user, I can edit my posts
 - As a signed in user, I can delete my posts
 
@@ -34,9 +35,9 @@ This is the client that utilizes the Hyrulian Times API.
 
 ### Unsolved Problems
 
-```md
-<!-- Unsolved problems go here -->
-```
+- I want to utilize Bootstrap toasts to tell the user about the result of each of the actions instead of displaying it in a paragraph tag at the top of the page
+- I still need to style it and make everything look like it belongs in the world of Legend of Zelda
+- I want to add a comment feature to each post
 
 ## Images
 
@@ -44,6 +45,4 @@ This is the client that utilizes the Hyrulian Times API.
 
 #### Wireframes:
 
-```md
-<!-- Wireframes go here -->
-```
+![Project 2 Wireframe](https://i.imgur.com/jn6t2sg.png)

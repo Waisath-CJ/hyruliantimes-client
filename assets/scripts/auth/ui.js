@@ -18,6 +18,8 @@ const signInSuccess = res => {
   $('#sign-in-section').hide()
   $('#change-password-dropdown').show()
   $('#sign-out').show()
+  $('#create-post-section').show()
+  $('#posts-section').show()
 }
 const signInFailure = err => {
   $("#message").text('Sign in failed, try again')
@@ -38,6 +40,8 @@ const signOutSuccess = () => {
   $('#sign-in-section').show()
   $('#sign-out').hide()
   $('#change-password-dropdown').hide()
+  $('#create-post-section').hide()
+  $('#posts-section').hide()
 }
 
 const signOutFailure = err => {

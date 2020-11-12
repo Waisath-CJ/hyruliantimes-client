@@ -17,10 +17,10 @@ const getPostsSuccess = res => {
   const posts = res.posts
   const userFullName = `${store.user.firstName} ${store.user.lastName}`
   let html = ''
-  const deleteHTML = '<button class="btn btn-outline-danger inline delete-post">Delete</button>'
   for (let i = posts.length - 1; i >= 0; i--) {
     if (userFullName === posts[i].owner) {
       const editHTML = `<button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#editPostModal" data-content="${posts[i].content}" data-id="${posts[i]._id}">Edit</button>`
+      const deleteHTML = `<button class="btn btn-outline-danger inline delete-post" data-id="${posts[i]._id}">Delete</button>`
 
       html += `<div class="card"><div class="card-header inline options-parent">${posts[i].owner} - ${editHTML} ${deleteHTML}</div><div class="card-body"><p class="card-text">${posts[i].content}</p></div><div class="card-footer text-muted">${posts[i].createdAt}</div></div><br>`
     } else {
@@ -31,14 +31,14 @@ const getPostsSuccess = res => {
   $('.delete-post').on('click', function (e) {
     e.preventDefault()
 
-    console.log('clicked delete post button')
+    const button = $(e.target)
+    const postId = button.data('id')
 
-    // const form = e.target
-    // const postData = getFormFields(form)
-
-    // api.deletePost(postData)
-    //   .then(deletePostSuccess)
-    //   .catch(deletePostFailure)
+    api.deletePost(postId)
+      .then(deletePostSuccess)
+      .then(api.getPosts)
+      .then(getPostsSuccess)
+      .catch(deletePostFailure)
   })
 }
 
@@ -46,13 +46,21 @@ const getPostsFailure = err => {
   $('#message').text('Getting posts failed\n' + err)
 }
 
-const editPostSuccess = res => {
+const editPostSuccess = () => {
   $('#editPostModal').modal('toggle')
   $('#message').text('Editing post succeeded')
 }
 
 const editPostFailure = err => {
   $('#message').text('Editing post failed\n' + err)
+}
+
+const deletePostSuccess = () => {
+  $('#message').text('Deleting post succeeded')
+}
+
+const deletePostFailure = err => {
+  $('#message').text('Deleting post failed\n' + err)
 }
 
 module.exports = {

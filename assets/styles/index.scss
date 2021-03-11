@@ -1,12 +1,23 @@
 @import '~bootstrap/scss/bootstrap';
-
 @font-face {
   font-family: 'Hylian Serif';
   src: url('/assets/styles/HyliaSerifBeta-Regular.otf')
 }
 
+$hyrulian-gold: #FFD73B;
+
+body {
+  background-image: url('/assets/hyrule.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
 #title {
   font-family: 'Hylian Serif';
+  font-size: 72px;
+  text-align: center;
+  color: $hyrulian-gold;
+  text-shadow: 2px 2px #000000;
 }
 
 .hiddenFromStart {

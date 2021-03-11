@@ -1,13 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
 @font-face {
   font-family: 'Hylian Serif';
-  src: url('/assets/styles/HyliaSerifBeta-Regular.otf')
+  src: url('/public/HyliaSerifBeta-Regular.otf')
 }
 
 $hyrulian-gold: #FFD73B;
 
 body {
-  background-image: url('/assets/hyrule.png');
+  background-image: url('/public/hyrule.png');
   background-repeat: no-repeat;
   background-size: 100%;
 }

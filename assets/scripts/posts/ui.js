@@ -15,16 +15,15 @@ const createPostFailure = err => {
 
 const getPostsSuccess = res => {
   const posts = res.posts
-  const userFullName = `${store.user.firstName} ${store.user.lastName}`
   let html = ''
   for (let i = posts.length - 1; i >= 0; i--) {
-    if (userFullName === posts[i].owner) {
+    if (store.user.email === posts[i].owner.email) {
       const editHTML = `<button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#editPostModal" data-content="${posts[i].content}" data-id="${posts[i]._id}">Edit</button>`
       const deleteHTML = `<button class="btn btn-outline-danger inline delete-post" data-id="${posts[i]._id}">Delete</button>`
 
-      html += `<div class="card"><div class="card-header inline options-parent">${posts[i].owner} - ${editHTML} ${deleteHTML}</div><div class="card-body"><p class="card-text">${posts[i].content}</p></div><div class="card-footer text-muted">${posts[i].createdAt}</div></div><br>`
+      html += `<div class="card"><div class="card-header inline options-parent">${posts[i].owner.firstName} ${posts[i].owner.lastName} - ${editHTML} ${deleteHTML}</div><div class="card-body"><p class="card-text">${posts[i].content}</p></div><div class="card-footer text-muted">${posts[i].createdAt}</div></div><br>`
     } else {
-      html += `<div class="card"><div class="card-header inline options-parent">${posts[i].owner}</div><div class="card-body"><p class="card-text">${posts[i].content}</p></div><div class="card-footer text-muted">${posts[i].createdAt}</div></div><br>`
+      html += `<div class="card"><div class="card-header inline options-parent">${posts[i].owner.firstName} ${posts[i].owner.lastName}</div><div class="card-body"><p class="card-text">${posts[i].content}</p></div><div class="card-footer text-muted">${posts[i].createdAt}</div></div><br>`
     }
   }
   $('#posts-section').html(html)

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hyrulian Times</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="title">Hyrulian Times</h1>
+    <h4 id="message"></h4>
+
+    <button class="btn my-btn hiddenFromStart" id="change-password" data-toggle="modal" data-target="#change-password-modal">Change Password</button>
+    <button class="btn my-btn hiddenFromStart" id="sign-out">Logout</button>
+
+    <section id="sign-up-section" class="hiddenFromStart">
+      <form id="sign-up-form">
+        <fieldset>
+          <legend>Create an Account</legend>
+          <div class="form-group">
+            <label for="sign-up-email">Email</label>
+            <input id="sign-up-email" class="form-control" type="email" name="credentials[email]" placeholder="Email"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="sign-up-firstName">First Name</label>
+            <input id="sign-up-firstName" class="form-control" type="text" name="credentials[firstName]"
+              placeholder="First Name" required>
+          </div>
+          <div class="form-group">
+            <label for="sign-up-lastName">Last Name</label>
+            <input id="sign-up-lastName" class="form-control" type="text" name="credentials[lastName]"
+              placeholder="Last Name" required>
+          </div>
+          <div class="form-group">
+            <label for="sign-up-password">Password</label>
+            <input id="sign-up-password" class="form-control" type="password" name="credentials[password]"
+              placeholder="Password" required>
+          </div>
+          <div class="form-group">
+            <label for="sign-up-password_confirmation">Password Confirmation</label>
+            <input id="sign-up-password_confirmmation" class="form-control" type="password"
+              name="credentials[password_confirmation]" placeholder="Confirm Password" required>
+          </div>
+          <button type="submit" class="btn my-btn">Create Account</button>
+        </fieldset>
+      </form>
+      <br>
+      <p>Already have an account? <a href="#" id="sign-in-switch">Login</a></p>
+    </section>
+
+    <section id="sign-in-section">
+      <form id="sign-in-form">
+        <fieldset>
+          <legend>Login</legend>
+          <div class="form-group">
+            <label for="sign-in-email">Email</label>
+            <input id="sign-in-email" class="form-control" type="email" name="credentials[email]" placeholder="Email"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="sign-in-password">Password</label>
+            <input id="sign-in-password" class="form-control" type="password" name="credentials[password]"
+              placeholder="Password" required>
+          </div>
+          <button type="submit" class="btn my-btn">Login</button>
+        </fieldset>
+      </form>
+      <br>
+      <p>Don't have an account? <a href="#" id="sign-up-switch">Create an Account</a></p>
+    </section>
+
+    <section id="create-post-section" class="hiddenFromStart">
+      <form id="create-post-form">
+        <fieldset>
+          <legend>Create Post</legend>
+          <div class="form-group">
+            <label for="create-post">Create Post</label>
+            <textarea id="create-post" class="form-control" name="post[content]" placeholder="Write your thoughts..."
+              required></textarea>
+          </div>
+          <button type="submit" class="btn my-btn">Create Post</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <section id="posts-section" class="hiddenFromStart"></section>
+  </div>
+
+  <!-- Notification Toast -->
+  <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-end"
+    style="position: absolute; bottom: 5%; width: 100%; min-height: 100px;">
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="notification-toast" data-delay="5000"
+      style="color: #000000;">
+      <div class="toast-header">
+        <strong class="mr-auto">Hyrulian Times</strong>
+        <small>just now</small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body" id="toast-message"></div>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div class="modal fade" tabindex="-1" id="change-password-modal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Change Password</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Error Alert -->
+          <div class="alert alert-danger alert-dismissible fade show" role="alert" id="change-password-err-alert">
+            <span id="change-password-err-message"></span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="change-password-form">
+            <fieldset>
+              <div class="form-group">
+                <label for="change-password-old">Old Password</label>
+                <input id="change-password-old" class="form-control" type="password" name="passwords[old]"
+                  placeholder="Old password">
+              </div>
+              <div class="form-group">
+                <label for="change-password-new">New Password</label>
+                <input id="change-password-new" class="form-control" type="password" name="passwords[new]"
+                  placeholder="New password">
+              </div>
+              <button type="submit" class="btn my-btn">Change Password</button>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Post Modal -->
+  <div class="modal fade" id="editPostModal" tabindex="-1" aria-labelledby="editPostModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editPostModalLabel">Edit Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="edit-post-form">
+            <div class="form-group">
+              <textarea id="edit-post" class="form-control" name="post[content]" required></textarea>
+            </div>
+            <input type="hidden" name="post[id]" class="edit-post-id">
+            <button type="submit" class="btn my-btn">Save Changes</button>
+            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

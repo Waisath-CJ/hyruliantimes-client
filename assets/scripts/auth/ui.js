@@ -16,7 +16,7 @@ const signInSuccess = res => {
   store.user = res.user
   $('#sign-in-form').trigger('reset')
   $('#sign-in-section').hide()
-  $('#change-password-dropdown').show()
+  $('#change-password').show()
   $('#sign-out').show()
   $('#create-post-section').show()
   $('#posts-section').show()
@@ -28,6 +28,8 @@ const signInFailure = err => {
 const changePasswordSuccess = () => {
   $("#message").text('Successfully changed password for ' + store.user.email)
   $('#change-password-form').trigger('reset')
+  $('#change-password-modal').modal('hide')
+  $('#change-password-err-alert').hide()
 }
 
 const changePasswordFailure = err => {
@@ -39,7 +41,7 @@ const signOutSuccess = () => {
   delete store.user
   $('#sign-in-section').show()
   $('#sign-out').hide()
-  $('#change-password-dropdown').hide()
+  $('#change-password').hide()
   $('#create-post-section').hide()
   $('#posts-section').hide()
   $('#change-password-form').trigger('reset')

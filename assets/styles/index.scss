@@ -1,16 +1,34 @@
 @import '~bootstrap/scss/bootstrap';
+
+/* 
+  Found font on this website: https://zeldauniverse.net/media/fonts/#:~:text=Hylian%20Serif%20is%20a%20new,the%20aging%20%E2%80%9CTriforce%E2%80%9D%20typeface.
+*/
 @font-face {
   font-family: 'Hylian Serif';
   src: url('/hyruliantimes-client/public/HyliaSerifBeta-Regular.otf')
 }
 
 $hyrulian-gold: #FFD73B;
+$sheikah-blue: #0097B2;
+$hero-green: #5C6C48;
 
 body {
+  /*
+    Found image at this website: https://wallpaperaccess.com/hyrule
+  */
   background-image: url('/hyruliantimes-client/public/hyrule.png');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+a {
+  color: $sheikah-blue;
+
+  &:hover {
+    color: $sheikah-blue;
+    text-decoration: underline;
+  }
 }
 
 #title {
@@ -21,7 +39,18 @@ body {
   text-shadow: 2px 2px #000000;
 }
 
-.hiddenFromStart {
+.my-btn {
+  background-color: $sheikah-blue;
+  color: #FFFFFF;
+
+  &:hover {
+    background-color: $sheikah-blue;
+    color: #FFFFFF;
+  }
+}
+
+.hiddenFromStart,
+#change-password-err-alert {
   display: none;
 }
 
